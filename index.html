@@ -3,70 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide Studio | Minecraft Creations</title>
+    <title>Slide Studio | Premium Minecraft Services</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">SLIDE<span>STUDIO</span></div>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#portafolio">Trabajos</a></li>
-                <li><a href="#equipo">Equipo</a></li>
-                <li><a href="https://discord.gg/tu-invitacion" class="btn-discord">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="glow-bg"></div>
+
+    <nav class="navbar">
+        <div class="logo">SLIDE<span>STUDIO</span></div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Home</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portafolio">Portfolio</a></li>
+            <li><a href="#equipo">Team</a></li>
+            <li><a href="#" class="btn-glow">Discord</a></li>
+        </ul>
+    </nav>
 
     <section id="inicio" class="hero">
-        <h1>Construyendo mundos, superando límites.</h1>
-        <p>Expertos en mapas, configuraciones y diseños exclusivos para Minecraft.</p>
-        <a href="#portafolio" class="btn-primary">Ver Portafolio</a>
-    </section>
-
-    <section id="portafolio">
-        <h2>Nuestros Trabajos</h2>
-        <div class="grid-trabajos">
-            <div class="card">
-                <img src="img/trabajo1.jpg" alt="Spawn Medieval">
-                <h3>Spawn Medieval</h3>
-                <p>Un hub detallado para servidores Survival.</p>
-            </div>
-            <div class="card">
-                <img src="img/trabajo2.jpg" alt="Lobby Galáctico">
-                <h3>Lobby Galáctico</h3>
-                <p>Diseño futurista con temática espacial.</p>
-            </div>
-            </div>
-    </section>
-
-    <section id="equipo">
-        <h2>El Equipo</h2>
-        <div class="grid-equipo">
-            <div class="miembro">
-                <img src="img/skin1.png" alt="Creador 1">
-                <h3>Nombre 1</h3>
-                <p>Builder Principal</p>
-            </div>
-            <div class="miembro">
-                <img src="img/skin2.png" alt="Creador 2">
-                <h3>Nombre 2</h3>
-                <p>Configurador Java</p>
-            </div>
-            <div class="miembro">
-                <img src="img/skin3.png" alt="Creador 3">
-                <h3>Nombre 3</h3>
-                <p>Diseñador 3D</p>
+        <div class="hero-content">
+            <span class="badge">ESTUDIO CREATIVO PROFESIONAL</span>
+            <h1>Elevando la experiencia de <span>Minecraft</span></h1>
+            <p>Creamos entornos inmersivos, sistemas complejos y diseños que hacen que tu servidor destaque sobre el resto.</p>
+            <div class="hero-btns">
+                <a href="#portafolio" class="btn-main">Ver Proyectos</a>
+                <a href="#servicios" class="btn-sec">Servicios</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Slide Studio - slidestudio.store</p>
-    </footer>
+    <section id="servicios" class="section">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🏗️</div>
+                <h3>Builds Elite</h3>
+                <p>Spawns, Lobbies y Mapas temáticos con Shaders optimizados.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+                <h3>Configuraciones</h3>
+                <p>Optimización de plugins, setups desde cero y seguridad.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🎨</div>
+                <h3>Resource Packs</h3>
+                <p>Modelos 3D e interfaces únicas (UI/UX) para tu servidor.</p>
+            </div>
+        </div>
+    </section>
 
+    <section id="equipo" class="section">
+        <h2 class="section-title">El Núcleo Creativo</h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="member-img"></div>
+                <h3>Nombre1</h3>
+                <span>CEO & Builder</span>
+            </div>
+            <div class="member-card">
+                <div class="member-img"></div>
+                <h3>Nombre2</h3>
+                <span>Lead Dev</span>
+            </div>
+            <div class="member-card">
+                <div class="member-img"></div>
+                <h3>Nombre3</h3>
+                <span>3D Artist</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        ScrollReveal().reveal('.service-card, .member-card', { 
+            delay: 200, 
+            distance: '50px',
+            origin: 'bottom',
+            interval: 100 
+        });
+    </script>
 </body>
 </html>

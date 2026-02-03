@@ -3,10 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide Studio | Premium Minecraft Services</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Slide Studio | Minecraft & Discord Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        :root {
+            --primary: #7000ff;
+            --secondary: #00d4ff;
+            --bg-dark: #080808;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text: #ffffff;
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Fondo de Luces */
+        .glow-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -10%, #2e005c 0%, transparent 40%),
+                        radial-gradient(circle at 0% 100%, #001d3d 0%, transparent 30%);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; }
+        .logo span { color: var(--secondary); }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #bbb; font-weight: 500; transition: 0.3s; font-size: 0.9rem; }
+        .nav-links a:hover { color: white; }
+
+        .btn-discord {
+            background: var(--primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .badge {
+            background: rgba(112, 0, 255, 0.1);
+            border: 1px solid var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            text-transform: uppercase;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin: 20px 0; }
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { font-size: 1.1rem; color: #aaa; max-width: 700px; margin: 0 auto 35px; }
+
+        .hero-btns { display: flex; gap: 15px; justify-content: center; }
+        .btn-main {
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-sec {
+            padding: 15px 35px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        /* Sections General */
+        .section { padding: 100px 10%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; font-weight: 700; }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(5px);
+            transition: 0.4s;
+            text-align: left;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .skin-preview {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .role {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #555;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,81 +199,80 @@
     <nav class="navbar">
         <div class="logo">SLIDE<span>STUDIO</span></div>
         <ul class="nav-links">
-            <li><a href="#inicio">Home</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#portafolio">Portfolio</a></li>
-            <li><a href="#equipo">Team</a></li>
-            <li><a href="#" class="btn-glow">Discord</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/equipo">Team</a></li>
+            <li><a href="https://discord.gg/4q68z4r9J5" class="btn-discord">Discord</a></li>
         </ul>
     </nav>
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <span class="badge">ESTUDIO CREATIVO PROFESIONAL</span>
-            <h1>Elevando la experiencia de <span>Minecraft</span></h1>
-            <p>Creamos entornos inmersivos, sistemas complejos y diseños que hacen que tu servidor destaque sobre el resto.</p>
+            <span class="badge">Minecraft & Discord Agency</span>
+            <h1>Slide Studio: Tu visión, <span>nuestra ejecución.</span></h1>
+            <p>Configuración profesional de servidores, bots de Discord personalizados y recursos premium. Regalamos y vendemos mapas y configuraciones de alta calidad.</p>
             <div class="hero-btns">
-                <a href="#portafolio" class="btn-main">Ver Proyectos</a>
-                <a href="#servicios" class="btn-sec">Servicios</a>
+                <a href="https://discord.gg/4q68z4r9J5" class="btn-main">Unirse al Discord</a>
+                <a href="/servicios" class="btn-sec">Ver Servicios</a>
             </div>
         </div>
     </section>
 
     <section id="servicios" class="section">
-        <h2 class="section-title">Nuestros Servicios</h2>
+        <h2 class="section-title">¿Qué hacemos?</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="icon">🏗️</div>
-                <h3>Builds Elite</h3>
-                <p>Spawns, Lobbies y Mapas temáticos con Shaders optimizados.</p>
+                <span class="icon">🖥️</span>
+                <h3>Servidores</h3>
+                <p>Configuramos tu servidor de Minecraft desde cero. Optimizamos rendimiento y plugins.</p>
             </div>
             <div class="service-card">
-                <div class="icon">⚙️</div>
-                <h3>Configuraciones</h3>
-                <p>Optimización de plugins, setups desde cero y seguridad.</p>
+                <span class="icon">🤖</span>
+                <h3>Bots de Discord</h3>
+                <p>Creación y configuración de bots para automatizar y proteger tu comunidad.</p>
             </div>
             <div class="service-card">
-                <div class="icon">🎨</div>
-                <h3>Resource Packs</h3>
-                <p>Modelos 3D e interfaces únicas (UI/UX) para tu servidor.</p>
+                <span class="icon">🗺️</span>
+                <h3>Mapas & Configs</h3>
+                <p>Ofrecemos recursos gratuitos y premium. Spawns, arenas y setups listos para usar.</p>
             </div>
         </div>
     </section>
 
-<section id="equipo" class="section">
-    <h2 class="section-title">El Núcleo Creativo</h2>
-    <div class="team-grid">
-        <div class="member-card">
-            <div class="member-inner">
-                <div class="member-img-container">
-                    <div class="skin-preview skin-creo"></div> 
-                </div>
-                <h3>Creo Destras</h3>
+    <section id="equipo" class="section">
+        <h2 class="section-title">El Núcleo Creativo</h2>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="skin-preview">CD</div>
                 <span class="role">Founder & Lead Builder</span>
-                <p>Especialista en estructuras monumentales y diseño de terrenos (Terraforming).</p>
+                <h3>Creo Destras</h3>
+                <p>Especialista en estructuras y diseño de terrenos.</p>
             </div>
-        </div>
-
-        <div class="member-card">
-            <div class="member-inner">
-                <div class="member-img-container">
-                    <div class="skin-preview skin-sonicespro"></div>
-                </div>
-                <h3>Sonicespro</h3>
+            <div class="member-card">
+                <div class="skin-preview">S</div>
                 <span class="role">Systems Configurator</span>
-                <p>Experto en optimización de servidores, setups de plugins y seguridad avanzada.</p>
+                <h3>Sonicespro</h3>
+                <p>Experto en optimización y setups técnicos.</p>
             </div>
-        </div>
-
-        <div class="member-card">
-            <div class="member-inner">
-                <div class="member-img-container">
-                    <div class="skin-preview skin-iwovly"></div>
-                </div>
-                <h3>iWovly</h3>
+            <div class="member-card">
+                <div class="skin-preview">W</div>
                 <span class="role">Technical Specialist</span>
-                <p>Desarrollo de mecánicas personalizadas y gestión de Resource Packs únicos.</p>
+                <h3>iWovly</h3>
+                <p>Desarrollo de mecánicas y Resource Packs únicos.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Slide Studio | slidestudio.store | No afiliado a Mojang AB.</p>
+    </footer>
+
+    <script>
+        // Animaciones de entrada
+        ScrollReveal().reveal('.service-card', { delay: 200, distance: '30px', origin: 'bottom', interval: 100 });
+        ScrollReveal().reveal('.member-card', { delay: 300, distance: '30px', origin: 'bottom', interval: 100 });
+        ScrollReveal().reveal('.hero-content', { delay: 100, scale: 0.9 });
+    </script>
+
+</body>
+</html>
